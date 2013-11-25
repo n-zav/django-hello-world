@@ -1,15 +1,48 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/my.css" />
+{% endblock %}
 {% block content %}
-    <h3>42 Coffee Cups Test Assignment</h3>
-    <dl id="person">
-        <dt>Name:</dt><dd id="name">{{ person.first_name }}</dd>
-        <dt>Last name:</dt><dd>{{ person.last_name }}</dd>
-        <dt>Date of birth:</dt><dd>{{ person.date_of_birth }}</dd>
-        <dt>Bio:</dt><dd>{{ person.biography }}</dd>
-        <dt>Email:</dt><dd id="email">{{ person.email }}</dd>
-        <dt>Jabber:</dt><dd>{{ person.jabber }}</dd>
-        <dt>Skype:</dt><dd id="skype">{{ person.skype }}</dd>
-        <dt>Other contacts:</dt><dd>{{ person.other_contacts }}</dd>
-    </dl>
+    <div class="UNIT" style="top: 25px; left: 25px; width: 653px; height: 28px; border: medium none; position: absolute; overflow: visible; cursor: auto; margin-top: 1px; margin-left: 1px; z-index: 1000;" unit_id="1">
+<h3 class="text needcss url" style="font-size: 22px; padding: 2px; font-family: Georgia,serif; line-height: 26px; font-weight: normal;">42 Coffee Cups Test Assignment</h3>
+<div class="glass" style="width: 0px; height: 0px;"></div>
+</div>
+<div class="UNIT" style="top: 65px; left: 25px; width: 108px; height: 18px; border: medium none; position: absolute; overflow: visible; cursor: auto; margin-top: 1px; margin-left: 1px; z-index: 1000;" unit_id="2">
+<pre class="text needcss url" style="font-size: 14px; padding: 2px; font-family: Georgia,serif; line-height: 18px;">Name: <span id="name">{{ person.first_name }}</span> </pre>
+<div class="glass" style="width: 0px; height: 0px;"></div>
+</div>
+<div class="UNIT" style="top: 90px; left: 25px; width: 108px; height: 18px; border: medium none; position: absolute; overflow: visible; cursor: auto; margin-top: 1px; margin-left: 1px; z-index: 1000;" unit_id="3">
+<pre class="text needcss url" style="font-size: 14px; padding: 2px; font-family: Georgia,serif; line-height: 18px;">Last name: {{ person.last_name }}</pre>
+<div class="glass" style="width: 0px; height: 0px;"></div>
+</div>
+<div class="UNIT" style="top: 55px; left: 380px; width: 108px; height: 18px; border: medium none; position: absolute; overflow: visible; cursor: auto; margin-top: 1px; margin-left: 1px; z-index: 1000;" unit_id="6">
+<pre class="text needcss url" style="font-size: 14px; padding: 2px; font-family: Georgia,serif; line-height: 18px;">Contacts</pre>
+<div class="glass" style="width: 0px; height: 0px;"></div>
+</div>
+<div class="UNIT" style="top: 80px; left: 380px; width: 108px; height: 18px; border: medium none; position: absolute; overflow: visible; cursor: auto; margin-top: 1px; margin-left: 1px; z-index: 1000;" unit_id="7">
+<pre class="text needcss url" style="font-size: 14px; padding: 2px; font-family: Georgia,serif; line-height: 18px;">Email: <span id="email">{{ person.email }}</span></pre>
+<div class="glass" style="width: 0px; height: 0px;"></div>
+</div>
+<div class="UNIT" style="top: 105px; left: 380px; width: 108px; height: 18px; border: medium none; position: absolute; overflow: visible; cursor: auto; margin-top: 1px; margin-left: 1px; z-index: 1000;" unit_id="8">
+<pre class="text needcss url" style="font-size: 14px; padding: 2px; font-family: Georgia,serif; line-height: 18px;">Jabber: {{ person.jabber }}</pre>
+<div class="glass" style="width: 0px; height: 0px;"></div>
+</div>
+<div class="UNIT" style="top: 130px; left: 380px; width: 108px; height: 18px; border: medium none; position: absolute; overflow: visible; cursor: auto; margin-top: 1px; margin-left: 1px; z-index: 1000;" unit_id="9">
+<pre class="text needcss url" style="font-size: 14px; padding: 2px; font-family: Georgia,serif; line-height: 18px;">Skype: <span id="skype">{{ person.skype }}</span></pre>
+<div class="glass" style="width: 0px; height: 0px;"></div>
+</div>
+<div class="UNIT" style="top: 160px; left: 380px; width: 308px; height: 163px; border: medium none; position: absolute; overflow: visible; cursor: auto; margin-top: 1px; margin-left: 1px; z-index: 1000;" unit_id="10">
+<pre class="text needcss url" style="font-size: 14px; padding: 2px; font-family: Georgia,serif; line-height: 18px;">Other contacts: {{ person.other_contacts }}</pre>
+<div class="glass" style="width: 0px; height: 0px;"></div>
+</div>
+<div class="UNIT" style="top: 165px; left: 30px; width: 313px; height: 153px; border: medium none; position: absolute; overflow: visible; cursor: auto; margin-top: 1px; margin-left: 1px; z-index: 1000;" unit_id="13">
+<pre class="text needcss url" style="font-size: 14px; padding: 2px; font-family: Georgia,serif; line-height: 18px;">Bio: {{ person.biography }}</pre>
+<div class="glass" style="width: 0px; height: 0px;"></div>
+</div>
+<div class="UNIT" style="top: 120px; left: 25px; width: 108px; height: 18px; border: medium none; position: absolute; overflow: visible; cursor: auto; margin-top: 1px; margin-left: 1px; z-index: 1000;" unit_id="14">
+<pre class="text needcss url" style="font-size: 14px; padding: 2px; font-family: Georgia,serif; line-height: 18px;">Date of birth: {{ person.date_of_birth }}</pre>
+<div class="glass" style="width: 0px; height: 0px;"></div>
+</div>
+
 {% endblock content %}

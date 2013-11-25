@@ -16,5 +16,20 @@
             "email": "admin@example.com", 
             "date_joined": "2011-08-19 09:53:08"
         }
+    },
+
+    {
+        "pk": 1,
+        "model": "hello.person",
+        "fields": {
+            "first_name": "Nastya",
+            "last_name": "Zavalkina",
+            "date_of_birth": "1990-08-06",
+            "biography": "Here I am",
+            "email": "nastya.zavalkina@gmail.com",
+            "jabber": "nastya.zavalkina@jabber.ru",
+            "skype": "nastya.zavalkina",
+            "other_contacts": "twitter: @mirrronenko"
+        }
     }
 ]

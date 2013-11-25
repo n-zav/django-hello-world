@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3>Hello! This is a Django Hello World Project.</h3>
-
-<p>You can now go to <a href="{% url admin:index %}">admin interface</a> and change admin pasword</p>
-<p>Currently next users are registered: {% for user in users %}{{ user.username }} {% endfor %}</p>
+    <h3>42 Coffee Cups Test Assignment</h3>
+    <dl id="person">
+        <dt>Name:</dt><dd id="name">{{ person.first_name }}</dd>
+        <dt>Last name:</dt><dd>{{ person.last_name }}</dd>
+        <dt>Date of birth:</dt><dd>{{ person.date_of_birth }}</dd>
+        <dt>Bio:</dt><dd>{{ person.biography }}</dd>
+        <dt>Email:</dt><dd id="email">{{ person.email }}</dd>
+        <dt>Jabber:</dt><dd>{{ person.jabber }}</dd>
+        <dt>Skype:</dt><dd id="skype">{{ person.skype }}</dd>
+        <dt>Other contacts:</dt><dd>{{ person.other_contacts }}</dd>
+    </dl>
 {% endblock content %}

@@ -8,14 +8,7 @@ class HomePageViewTestCase(unittest.TestCase):
     def test_get(self):
         """HomePageView.get() sets 'person' in response context."""
         # Setup name.
-        person = Person.objects.create(first_name="Nastya",
-                                       last_name="Zavalkina",
-                                       date_of_birth="1990-08-06",
-                                       biography="Here I am",
-                                       email="nastya.zavalkina@gmail.com",
-                                       jabber="nastya.zavalkina@jabber.ru",
-                                       skype="nastya.zavalkina",
-                                       other_contacts="twitter: @mirronenko")
+        person = Person.objects.get(email="nastya.zavalkina@gmail.com")
         # Setup request and view.
         request = RequestFactory().get('/fake-path')
         view = HomePageView.as_view(template_name='hello/home.html')

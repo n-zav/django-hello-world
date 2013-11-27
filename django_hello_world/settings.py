@@ -8,8 +8,7 @@ APP_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(APP_DIR)
 
 ADMINS = (
-    ('nastya', 'nastya.zavalkina@gmail.com'),
-    ('hello', 'hello@world.com'),
+    ('admin', 'admin@example.com'),
 )
 
 MANAGERS = ADMINS
@@ -61,7 +60,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = 'staticfiles'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -112,6 +111,7 @@ AUTHENTICATION_BACKENDS = (
 ROOT_URLCONF = 'django_hello_world.urls'
 
 TEMPLATE_DIRS = (
+    os.path.join(APP_DIR, 'hello/templates')
     # Put strings here, like "/home/html/django_templates"
     # or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
@@ -156,4 +156,5 @@ LOGGING = {
     }
 }
 
-SESSION_COOKIE_DOMAIN = 'django.hw'
+SESSION_COOKIE_DOMAIN = \
+    'http://django-hello-world-56.mirrronenko.at.getbarista.com'

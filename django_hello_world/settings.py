@@ -1,7 +1,7 @@
 import os
 # Django settings for django_hello_world project.
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))

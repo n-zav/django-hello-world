@@ -1,7 +1,7 @@
 import os
 # Django settings for django_hello_world project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -17,7 +17,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'hello.sqlite3',  # Or path to database file if using sqlite3.
+        'NAME': os.path.join(APP_DIR, 'hello.sqlite3'),
         'USER': '',
         'PASSWORD': '',
         'HOST': '',

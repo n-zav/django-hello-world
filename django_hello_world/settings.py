@@ -157,4 +157,4 @@ LOGGING = {
 }
 
 SESSION_COOKIE_DOMAIN = \
-    'http://django-hello-world-56.mirrronenko.at.getbarista.com'
+    'django-hello-world-56.mirrronenko.at.getbarista.com'

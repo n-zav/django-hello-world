@@ -1,7 +1,9 @@
-from django_hello_world.hello.tests.HomePageViewTestCase import *
+from .HomePageViewTestCase import *
+from .RequestTestCase import *
 
   
-#starts the test suite  
+#starts the test suite
 __test__= {  
            'homepage_test': HomePageViewTestCase,
+           'request_test': RequestTestCase,
            }

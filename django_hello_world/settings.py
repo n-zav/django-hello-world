@@ -97,7 +97,7 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'custom.middleware.my.StoreRequestInDatabase',
+    'hello.middleware.HttpRequest.StoreRequestInDatabase',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -132,7 +132,6 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'django_hello_world.hello',
     'south',
-    'custom',
 )
 
 # A sample logging configuration. The only tangible logging

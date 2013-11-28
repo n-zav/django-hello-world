@@ -1,6 +1,6 @@
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView
-from django_hello_world.hello.models import Person, Request
+from .models import Person, Request
 
 
 class HomePageView(TemplateView):
@@ -18,6 +18,12 @@ class RequestListView(ListView):
 
     model = Request
     template_name = "hello/request.html"
+
+    def get_queryset(self):
+        r = Request.objects.all()
+        count = r.count()
+        result = Request.objects.order_by('-time_added')[:10]
+        return result
 
     def get_context_data(self, **kwargs):
         context = super(RequestListView, self).get_context_data(**kwargs)

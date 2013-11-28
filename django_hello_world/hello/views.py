@@ -1,6 +1,6 @@
 from django.views.generic.base import TemplateView
-
-from django_hello_world.hello.models import Person
+from django.views.generic import ListView
+from django_hello_world.hello.models import Person, Request
 
 
 class HomePageView(TemplateView):
@@ -13,7 +13,12 @@ class HomePageView(TemplateView):
         context['person'] = person
         return context
 
-#@render_to('hello/home.html')
-#def home(request):
-#    users = User.objects.all()
-#    return {'users': users}
+
+class RequestListView(ListView):
+
+    model = Request
+    template_name = "hello/request.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(RequestListView, self).get_context_data(**kwargs)
+        return context

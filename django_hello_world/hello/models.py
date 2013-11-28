@@ -17,3 +17,4 @@ class Person(models.Model):
 
 class Request(models.Model):
     full_path = models.TextField()
+    time_added = models.DateTimeField(auto_now_add=True)

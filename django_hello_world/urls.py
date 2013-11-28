@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
-from django_hello_world.hello.views import HomePageView
+from django_hello_world.hello.views import HomePageView, RequestListView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -9,6 +9,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
                        #  Examples:
                        url(r'^$', HomePageView.as_view(), name='home'),
+                       url(r'^request/', RequestListView.as_view(),
+                           name='request'),
 
                        # Uncomment the admin/doc line below to enable
                        # admin documentation:

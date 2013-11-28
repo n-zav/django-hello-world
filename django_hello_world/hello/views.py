@@ -18,13 +18,4 @@ class RequestListView(ListView):
 
     model = Request
     template_name = "hello/request.html"
-
-    def get_queryset(self):
-        r = Request.objects.all()
-        count = r.count()
-        result = Request.objects.order_by('-time_added')[:10]
-        return result
-
-    def get_context_data(self, **kwargs):
-        context = super(RequestListView, self).get_context_data(**kwargs)
-        return context
+    queryset = Request.objects.order_by('-time_added')[:10]

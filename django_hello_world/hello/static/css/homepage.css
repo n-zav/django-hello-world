@@ -36,3 +36,17 @@ dl.inline dd + dd {
 dl.inline dt {
     font-weight: normal
 }
+
+.clear {
+    clear: both;
+}
+
+hr {
+    width: 50%;
+    float: left;
+    margin-left: 3%;
+}
+
+a {
+    margin-left: 3%;
+}

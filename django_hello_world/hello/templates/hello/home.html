@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+
 {% block extra_css %}
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/homepage.css" />
 {% endblock %}
@@ -31,4 +32,8 @@
             <dd>{{ person.other_contacts }}</dd>
         </dl>
     </div>
+    <div class="clear"></div>
+    <hr>
+    <br>
+        <a href={% url request %}>requests</a>
 {% endblock %}

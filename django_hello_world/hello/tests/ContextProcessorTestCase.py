@@ -9,7 +9,7 @@ class ContextProcessorTestCase(unittest.TestCase):
 
     def test_access_to_settings(self):
         """
-        Tests that settings are in context
+        Tests that settings are in the context
         """
         request = RequestFactory().get('/')
         context = RequestContext(request, {}, [access_to_settings])

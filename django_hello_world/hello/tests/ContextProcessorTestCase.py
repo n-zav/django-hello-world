@@ -1,6 +1,6 @@
 from django.template import RequestContext
 from django.test.client import RequestFactory
-from ..context_processors import access_to_settings
+from django_hello_world.hello.context_processors import access_to_settings
 from django.conf import settings
 import unittest
 

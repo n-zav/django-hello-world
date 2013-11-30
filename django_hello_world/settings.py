@@ -126,7 +126,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
-    'hello.context_processors.access_to_settings',
+    'django_hello_world.hello.context_processors.access_to_settings',
 )
 
 INSTALLED_APPS = (

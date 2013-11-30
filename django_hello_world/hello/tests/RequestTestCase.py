@@ -2,7 +2,7 @@ from django.http import HttpRequest
 from django.test import TestCase
 from mock import patch, Mock
 from mock import MagicMock
-from django_hello_world.hello.middleware.HttpRequest import *
+from django_hello_world.hello.middleware.http_request import *
 
 
 class RequestTestCase(TestCase):

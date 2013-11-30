@@ -97,7 +97,7 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'hello.middleware.HttpRequest.StoreRequestInDatabase',
+    'django_hello_world.hello.middleware.http_request.StoreRequestInDatabase',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

@@ -1,13 +1,10 @@
-from django.http import HttpRequest
+from django.conf import settings
 from django.test import TestCase, RequestFactory
-from mock import patch, Mock
-from mock import MagicMock
 from django_hello_world.hello.middleware.http_request import *
 
 
 class RequestTestCase(TestCase):
 
-    # mock models.Request constructor
     def test_process_request(self):
         # test that there is no record in db at first
         test_full_path = '/test_full_path'
@@ -22,3 +19,9 @@ class RequestTestCase(TestCase):
         # test that the record exists now
         count = Request.objects.filter(full_path=test_full_path).count()
         self.assertEqual(1, count)
+
+    def test_middleware_class_is_in_middleware_classes(self):
+        middleware_classes = getattr(settings, 'MIDDLEWARE_CLASSES')
+        self.assertIn(
+            'django_hello_world.hello.middleware.http_request.StoreRequestInDatabase',
+            middleware_classes)

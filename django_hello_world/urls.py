@@ -1,21 +1,24 @@
 from django.conf.urls.defaults import patterns, include, url
-from django_hello_world.hello.views import HomePageView, RequestListView
-
+from django.views.generic.simple import redirect_to
+from django_hello_world.hello.views import *
+from django.contrib.auth.views import login, logout
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
-                       #  Examples:
                        url(r'^$', HomePageView.as_view(), name='home'),
                        url(r'^request/', RequestListView.as_view(),
                            name='request'),
-
-                       # Uncomment the admin/doc line below to enable
-                       # admin documentation:
+                       # auth urls
+                       url(r'^accounts/login/$', login, name='login'),
+                       url(r'^accounts/logout/$', logout, name='logout'),
+                       url(r'^accounts/profile/$', redirect_to, {'url': '/'}),
+                       url(r'^accounts/$', redirect_to, {'url': '/'}),
+                       # edit urls
+                       url(r'^edit/$', edit_view, name="edit-view"),
+                       # admin urls
                        url(r'^admin/doc/',
                            include('django.contrib.admindocs.urls')),
-
-                       # Uncomment the next line to enable the admin:
                        url(r'^admin/', include(admin.site.urls)), )

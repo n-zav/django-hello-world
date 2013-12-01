@@ -4,6 +4,7 @@ h3 {
     margin-left: 3%;
     margin-top: 3%;
     font-size: 22px;
+    width: 60%;
 }
 #first {
     float: left;
@@ -12,8 +13,15 @@ h3 {
 }
 
 #second {
+    float: left;
+    width: 25%;
+}
+
+#third {
     float: right;
-    width: 67%;
+    width: 40%;
+    position: relative;
+    margin-top: 1%;
 }
 
 dl.inline dt, dl.inline dd {

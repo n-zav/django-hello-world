@@ -15,8 +15,10 @@ urlpatterns = patterns('',
                        # auth urls
                        url(r'^accounts/login/$', login, name='login'),
                        url(r'^accounts/logout/$', logout, name='logout'),
-                       url(r'^accounts/profile/$', redirect_to, {'url': '/'}),
-                       url(r'^accounts/$', redirect_to, {'url': '/'}),
+                       url(r'^accounts/profile/$', redirect_to, {'url': '/'},
+                           name='accounts-profile'),
+                       url(r'^accounts/$', redirect_to, {'url': '/'},
+                           name='accounts'),
                        # edit urls
                        url(r'^edit/$', edit_view, name="edit-view"),
                        # admin urls

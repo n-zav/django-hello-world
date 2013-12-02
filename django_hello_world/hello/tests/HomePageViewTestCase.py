@@ -1,7 +1,9 @@
-from django_hello_world.hello.models import Person
-from django_hello_world.hello.views import HomePageView
-from django.test import RequestFactory
 import unittest
+
+from django.test import RequestFactory
+
+from ..models import Person
+from ..views import HomePageView
 
 
 class HomePageViewTestCase(unittest.TestCase):

@@ -170,3 +170,5 @@ LOGGING = {
 
 SESSION_COOKIE_DOMAIN = \
     'django-hello-world-56.mirrronenko.at.getbarista.com'
+
+SOUTH_TESTS_MIGRATE = False

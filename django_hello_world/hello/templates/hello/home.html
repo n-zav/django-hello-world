@@ -24,8 +24,10 @@
             <dd>{{ person.last_name }}</dd>
             <dt>Date of birth:</dt>
             <dd>{{ person.date_of_birth }}</dd>
-            <dt>Bio: </dt>
-            <dd>{{ person.biography }}</dd>
+            <dt></dt>
+            <dd>{% if person.image %}
+                    <img src="{{ person.image.url }}"/>
+                {% endif %} </dd>
         </dl>
     </div>
     <div id="second">
@@ -40,6 +42,8 @@
             <dd>{{ person.skype }}</dd>
             <dt>Other contacts: </dt>
             <dd>{{ person.other_contacts }}</dd>
+            <dt>Bio: </dt>
+            <dd>{{ person.biography }}</dd>
         </dl>
     </div>
     <div class="clear"></div>

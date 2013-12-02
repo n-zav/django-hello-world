@@ -1,3 +1,107 @@
 {% extends "base.html" %}
 
-{% block content %} Edit the homepage {% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/homepage.css" />
+{% endblock %}
+
+{% block content %}
+    <h3>42 Coffee Cups Test Assignment</h3>
+        <form action="/edit/" method="post" enctype="multipart/form-data">{% csrf_token %}
+        {{ form.non_field_errors }}
+    <div id="first">
+        <dl class="inline">
+            <dt><label for="first_name">Name:</label></dt>
+            <dd>{{ form.first_name.errors }}</dd>
+            <dd>{{ form.first_name }}</dd>
+            <dt><label for="last_name">Last name:</label></dt>
+            <dd>{{ form.last_name.errors }}</dd>
+            <dd>{{ form.last_name }}</dd>
+            <dt><label for="date_of_birth">Date of birth:</label></dt>
+            <dd>{{ form.date_of_birth.errors }}</dd>
+            <dd>{{ form.date_of_birth }}</dd>
+            <dt><label for="id_image">Photo:</label></dt>
+            <dd>{{ form.image.errors }}</dd>
+            <dd>{{ form.image }}</dd>
+            <dt></dt>
+            <dd>{% if person.image %}
+                    <img src="{{ person.image.url }}" alt="photo" />
+                {% endif %} </dd>
+        </dl>
+    </div>
+    <div id="second">
+        <dl class="inline">
+            <dt>Contacts</dt>
+            <dd></dd>
+            <dt><label for="email">Email:</label></dt>
+            <dd>{{ form.email.errors }}</dd>
+            <dd>{{ form.email }}</dd>
+             <dt><label for="jabber">Jabber:</label></dt>
+            <dd>{{ form.jabber.errors }}</dd>
+            <dd>{{ form.jabber }}</dd>
+            <dt><label for="skype">Skype:</label></dt>
+            <dd>{{ form.skype.errors }}</dd>
+            <dd>{{ form.skype }}</dd>
+            <dt><label for="other_contacts">Other contacts:</label></dt>
+            <dd>{{ form.othet_contacts.errors }}</dd>
+            <dd>{{ form.othet_contacts }}</dd>
+            <dt><label for="biography">Bio:</label></dt>
+            <dd>{{ form.biography.errors }}</dd>
+            <dd>{{ form.biography }}</dd>
+        </dl>
+    </div>
+    <div class="clear"></div>
+    <hr>
+    <br>
+    <p><input type="submit" value="Edit" /></p>
+</form>
+{#    <div class="fieldWrapper">#}
+{#        {{ form.first_name.errors }}#}
+{#        <label for="first_name">Name:</label>#}
+{#        {{ form.first_name }}#}
+{#    </div>#}
+{#    <div class="fieldWrapper">#}
+{#        {{ form.last_name.errors }}#}
+{#        <label for="last_name">Last name:</label>#}
+{#        {{ form.last_name }}#}
+{#    </div>#}
+{#    <div class="fieldWrapper">#}
+{#        {{ form.date_of_birth.errors }}#}
+{#        <label for="date_of_birth">Date of birth:</label>#}
+{#        {{ form.date_of_birth }}#}
+{#    </div>#}
+{#    <div class="fieldWrapper">#}
+{#                {{ form.image.errors }}#}
+{#                <label for="image">Photo:</label>#}
+{#                {{ form.image }}#}
+{#                {% if person.image %}#}
+{#                <img src="{{ person.image.url }}" alt="image" />#}
+{#                {% endif %}#}
+{#    </div>#}
+{#    <div class="fieldWrapper">#}
+{#        {{ form.email.errors }}#}
+{#        <label for="email">Email:</label>#}
+{#        {{ form.email }}#}
+{#    </div>#}
+{#    <div class="fieldWrapper">#}
+{#        {{ form.jabber.errors }}#}
+{#        <label for="jabber">Jabber:</label>#}
+{#        {{ form.jabber }}#}
+{#    </div>#}
+{#    <div class="fieldWrapper">#}
+{#        {{ form.skype.errors }}#}
+{#        <label for="skype">Skype:</label>#}
+{#        {{ form.skype }}#}
+{#    </div>#}
+{#    <div class="fieldWrapper">#}
+{#        {{ form.other_contacts.errors }}#}
+{#        <label for="other_contacts">Other contacts:</label>#}
+{#        {{ form.other_contacts }}#}
+{#    </div>#}
+{#    <div class="fieldWrapper">#}
+{#        {{ form.biography.errors }}#}
+{#        <label for="biography">Bio:</label>#}
+{#        {{ form.biography }}#}
+{#    </div>#}
+{#     <p><input type="submit" value="Edit" /></p>#}
+{#    </form>#}
+{% endblock %}

@@ -1,53 +1,40 @@
 {% extends "base.html" %}
 
+{% block title %}Contact Details{% endblock %}
 
-{% block extra_css %}
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/homepage.css" />
-{% endblock %}
 {% block content %}
-    <h3>42 Coffee Cups Test Assignment</h3>
-    <div id="third">
-        <div id="auth">
-            {% if user.is_authenticated %}
-            <a href="{% url edit-view %}">Edit</a> |
-            <a href="{% url logout %}">Logout</a>
-            {% else %}
-            <a href="{% url login %}">Login</a>
-            {% endif %}
-        </div>
-    </div>
-    <div id="first">
-        <dl class="inline">
-            <dt>Name: </dt>
-            <dd>{{ person.first_name }}</dd>
-            <dt>Last name: </dt>
-            <dd>{{ person.last_name }}</dd>
-            <dt>Date of birth:</dt>
-            <dd>{{ person.date_of_birth }}</dd>
-            <dt></dt>
-            <dd>{% if person.image %}
-                    <img src="{{ person.image.url }}"/>
-                {% endif %} </dd>
-        </dl>
-    </div>
-    <div id="second">
-        <dl class="inline">
-            <dt>Contacts</dt>
-            <dd></dd>
-            <dt>Email: </dt>
-            <dd>{{ person.email }}</dd>
-            <dt>Jabber: </dt>
-            <dd>{{ person.jabber }}</dd>
-            <dt>Skype: </dt>
-            <dd>{{ person.skype }}</dd>
-            <dt>Other contacts: </dt>
-            <dd>{{ person.other_contacts }}</dd>
-            <dt>Bio: </dt>
-            <dd>{{ person.biography }}</dd>
-        </dl>
+    <h3>Contact Details</h3>
+    <div id="edit_links">
+        {% if user.is_authenticated %}
+            <a href="{% url edit-view %}">Edit</a>
+        {% endif %}
     </div>
     <div class="clear"></div>
-    <hr>
-    <br>
-        <a href={% url request %}>requests</a>
+    <dl class="inline">
+        <dt>Name:</dt>
+        <dd>{{ person.first_name }}</dd>
+        <dt>Last name:</dt>
+        <dd>{{ person.last_name }}</dd>
+        <dt>Date of birth:</dt>
+        <dd>{{ person.date_of_birth }}</dd>
+        <dt></dt>
+        <dd>{% if person.image %}
+            <img src="{{ person.image.url }}"/>
+        {% endif %} </dd>
+    </dl>
+    <dl class="inline">
+        <dt>Contacts</dt>
+        <dd></dd>
+        <dt>Email:</dt>
+        <dd>{{ person.email }}</dd>
+        <dt>Jabber:</dt>
+        <dd>{{ person.jabber }}</dd>
+        <dt>Skype:</dt>
+        <dd>{{ person.skype }}</dd>
+        <dt>Other contacts:</dt>
+        <dd>{{ person.other_contacts }}</dd>
+        <dt>Bio:</dt>
+        <dd>{{ person.biography }}</dd>
+    </dl>
+    <div class="clear"></div>
 {% endblock %}

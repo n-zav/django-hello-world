@@ -34,9 +34,10 @@ class RequestListView(ListView):
 def edit_view(request):
     person = Person.objects.get(pk=1)
     if request.method == 'POST':  # If the form has been submitted...
-        sleep(10)
         form = EditForm(request.POST, request.FILES, instance=person)
-        is_ajax_request = form.data['is_ajax_request']
+        is_ajax_request = False
+        if 'is_ajax_request' in form.data:
+            is_ajax_request = form.data['is_ajax_request']
 
         if form.is_valid():  # All validation rules pass
             form.save()

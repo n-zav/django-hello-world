@@ -58,7 +58,8 @@ class EditContactTestCasePost(TestCase):
         self.user = User.objects.create_user('Jane', 'jane.doe@gmail.com',
                                              'test')
         self.client.login(username='Jane', password='test')
-        self.proper_data = {"first_name": "Nastya",
+        self.proper_data = {"is_ajax_request": 0,
+                            "first_name": "Nastya",
                             "last_name": "Zavalkina",
                             "date_of_birth": "1990-08-06",
                             "biography": "Here I am",

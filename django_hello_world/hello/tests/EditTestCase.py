@@ -68,20 +68,43 @@ class EditContactTestCasePost(TestCase):
                             "skype": "nastya.zavalkina",
                             "other_contacts": "twitter: @mirrronenko"}
 
-    def test_form_submit_no_data(self):
-        response = self.client.post(reverse('edit-view'))
+    ajax_requests = lambda: (
+        ('1',),
+        ('0',),
+    )
+
+    @data_provider(ajax_requests)
+    def test_form_submit_no_data(self, ajax_request):
+        response = self.client.post(reverse('edit-view'), {"is_ajax_request":ajax_request})
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['form']['first_name'].errors,
                          [u'This field is required.'])
+        if ajax_request:
+            self.assertNotIn('<title>Edit contact details</title>', response.content)
+            self.assertIn('"message": "An error occurred while updating data"', response.content)
+        else:
+            self.assertIn('<title>Edit contact details</title>', response.content)
+            self.assertNotIn('"message": "An error occurred while updating data"', response.content)
 
-    def test_form_submit_with_data(self):
+    @data_provider(ajax_requests)
+    def test_form_submit_with_data(self, ajax_request):
         new_name = "Martishka"
         self.proper_data['first_name'] = new_name
+        self.proper_data['is_ajax_request'] = ajax_request
         self.client.post(reverse('edit-view'), self.proper_data)
         person = Person.objects.get(pk=1)
         self.assertEqual(person.first_name, new_name)
 
-    def test_form_submit_redirect(self):
+    @data_provider(ajax_requests)
+    def test_form_submit_redirect(self, ajax_request):
+        self.proper_data['is_ajax_request'] = ajax_request
+
         response = self.client.post(reverse('edit-view'), self.proper_data,
                                     follow=True)
         self.assertEqual(response.status_code, 200)
+        if ajax_request:
+            self.assertNotIn('<title>Contact Details</title>', response.content)
+            self.assertIn('"message": "Data was successfully updated"', response.content)
+        else:
+            self.assertIn('<title>Contact Details</title>', response.content)
+            self.assertNotIn('"message": "Data was successfully updated"', response.content)

@@ -35,7 +35,7 @@ def edit_view(request):
     person = Person.objects.get(pk=1)
     if request.method == 'POST':  # If the form has been submitted...
         form = EditForm(request.POST, request.FILES, instance=person)
-        is_ajax_request = False
+        is_ajax_request = 0
         if 'is_ajax_request' in form.data:
             is_ajax_request = form.data['is_ajax_request']
 
@@ -46,7 +46,7 @@ def edit_view(request):
                 'form': form}, context_instance=RequestContext(request))
             response = json.dumps({
                 'success': True,
-                'message': 'Data was successfully updated.',
+                'message': 'Data was successfully updated',
                 'html': html
             })
         else:

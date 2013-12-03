@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+  {{ form.media }}
+{% endblock %}
+
 {% block title %}Edit contact details{% endblock %}
 
 {% block content %}

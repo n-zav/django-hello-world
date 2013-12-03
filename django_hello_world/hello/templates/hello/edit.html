@@ -1,54 +1,20 @@
 {% extends "base.html" %}
 
 {% block extrahead %}
-  {{ form.media }}
+    <script type ="text/javascript" src="{{ STATIC_URL }}js/jquery.min.js"></script>
+    <script type ="text/javascript" src="{{ STATIC_URL }}js/jquery.form.js"></script>
+    <script type ="text/javascript" src="{{ STATIC_URL }}js/contact.js"></script>
+    {{ form.media }}
 {% endblock %}
 
 {% block title %}Edit contact details{% endblock %}
 
 {% block content %}
     <h3>Edit contact details</h3>
+    <div id="ajax_messages"></div>
     <div id="form_container">
-        <form action="{% url edit-view %}" method="post" enctype="multipart/form-data">{% csrf_token %}
-            {{ form.non_field_errors }}
-            <dl class="inline">
-                <dt><label for="first_name">Name:</label></dt>
-                <dd>{{ form.first_name }}</dd>
-                <dd>{{ form.first_name.errors }}</dd>
-                <dt><label for="last_name">Last name:</label></dt>
-                <dd>{{ form.last_name }}</dd>
-                <dd>{{ form.last_name.errors }}</dd>
-                <dt><label for="date_of_birth">Date of birth:</label></dt>
-                <dd>{{ form.date_of_birth }}</dd>
-                <dd>{{ form.date_of_birth.errors }}</dd>
-                <dt><label for="id_image">Photo:</label></dt>
-                <dd>{{ form.image }}</dd>
-                <dd>{{ form.image.errors }}</dd>
-                <dt></dt>
-                <dd>{% if person.image %}
-                    <img src="{{ person.image.url }}" alt="photo"/>
-                {% endif %}
-                </dd>
-            </dl>
-            <dl class="inline">
-                <dt><label for="email">Email:</label></dt>
-                <dd>{{ form.email }}</dd>
-                <dd>{{ form.email.errors }}</dd>
-                <dt><label for="jabber">Jabber:</label></dt>
-                <dd>{{ form.jabber }}</dd>
-                <dd>{{ form.jabber.errors }}</dd>
-                <dt><label for="skype">Skype:</label></dt>
-                <dd>{{ form.skype }}</dd>
-                <dd>{{ form.skype.errors }}</dd>
-                <dt><label for="other_contacts">Other contacts:</label></dt>
-                <dd>{{ form.other_contacts }}</dd>
-                <dd>{{ form.other_contacts.errors }}</dd>
-                <dt><label for="biography">Bio:</label></dt>
-                <dd>{{ form.biography }}</dd>
-                <dd>{{ form.biography.errors }}</dd>
-            </dl>
-            <div class="clear"></div>
-            <p><input type="submit" value="Save"/> <a href="{% url home %}">Cancel</a></p>
+        <form id="edit-form" enctype="multipart/form-data" method="post" action="{% url edit-view %}">
+        {% include "hello/edit_form.html" %}
         </form>
     </div>
 {% endblock %}

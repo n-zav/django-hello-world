@@ -1,0 +1,46 @@
+{% csrf_token %}
+<div class="hidden">
+    {{ form.is_ajax_request}}
+</div>
+{{ form.non_field_errors }}
+<dl class="inline">
+    <dt><label for="id_first_name">Name:</label></dt>
+    <dd>{{ form.first_name }}</dd>
+    <dd>{{ form.first_name.errors }}</dd>
+    <dt><label for="id_last_name">Last name:</label></dt>
+    <dd>{{ form.last_name }}</dd>
+    <dd>{{ form.last_name.errors }}</dd>
+    <dt><label for="id_date_of_birth">Date of birth:</label></dt>
+    <dd>{{ form.date_of_birth }}</dd>
+    <dd>{{ form.date_of_birth.errors }}</dd>
+    <dt><label for="id_image">Photo:</label></dt>
+    <dd>{{ form.image }}</dd>
+    <dd>{{ form.image.errors }}</dd>
+    <dt></dt>
+    <dd>{% if person.image %}
+        <img src="{{ person.image.url }}" alt="photo"/>
+    {% endif %}
+    </dd>
+</dl>
+<dl class="inline">
+    <dt><label for="id_email">Email:</label></dt>
+    <dd>{{ form.email }}</dd>
+    <dd>{{ form.email.errors }}</dd>
+    <dt><label for="id_jabber">Jabber:</label></dt>
+    <dd>{{ form.jabber }}</dd>
+    <dd>{{ form.jabber.errors }}</dd>
+    <dt><label for="id_skype">Skype:</label></dt>
+    <dd>{{ form.skype }}</dd>
+    <dd>{{ form.skype.errors }}</dd>
+    <dt><label for="id_other_contacts">Other contacts:</label></dt>
+    <dd>{{ form.other_contacts }}</dd>
+    <dd>{{ form.other_contacts.errors }}</dd>
+    <dt><label for="id_biography">Bio:</label></dt>
+    <dd>{{ form.biography }}</dd>
+    <dd>{{ form.biography.errors }}</dd>
+</dl>
+    <div class="clear"></div>
+    <div class="span10" id="submit-buttons">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="/" class="cancel-link">Cancel</a>
+    </div>

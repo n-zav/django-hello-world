@@ -1,16 +1,14 @@
 from django.conf import settings
-from django.forms.widgets import Input
+from django.forms.widgets import DateInput
 from django.utils.safestring import mark_safe
 
 
-class DatePickerInput(Input):
+class DatePickerInput(DateInput):
     class Media:
         css = {
             'all': (settings.STATIC_URL + 'css/jquery-ui.css',),
         }
-        js = (settings.STATIC_URL + 'js/jquery.min.js',
-              settings.STATIC_URL + 'js/jquery-ui.min.js'
-        )
+        js = (settings.STATIC_URL + 'js/jquery-ui.min.js',)
 
     def render(self, name, value, attrs=None):
         attrs = attrs or {}

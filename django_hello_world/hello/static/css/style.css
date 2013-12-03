@@ -104,3 +104,18 @@ h3 {
      margin-bottom: 15px;
     margin-top: 20px;
 }
+
+#ajax_messages {
+    display: none;
+    border: 1px solid;
+}
+
+.ajax_message_success {
+    color: green;
+    border-color: green;
+}
+
+.ajax_message_errors {
+    color: red;
+    border-color: red;
+}

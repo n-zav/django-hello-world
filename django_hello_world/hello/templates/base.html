@@ -2,7 +2,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head><title>{% block title %}No title{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" />
+    <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet">
     {% block extrahead %}{% endblock %}
 </head>
 <body>

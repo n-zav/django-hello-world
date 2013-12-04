@@ -14,7 +14,7 @@ class AuthEditTestCase(TestCase):
             first_name="Jane",
             last_name="Doe",
             date_of_birth="2001-01-01",
-            biography="Jane Doe's biograpthy",
+            biography="Jane Doe's biography",
             email="jane.doe@example.com",
             skype="jane.doe",
             jabber="jane.doe@jabber.ru",

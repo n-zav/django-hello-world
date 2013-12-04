@@ -1,8 +1,9 @@
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
-from ..models import Person
 from unittest_data_provider import data_provider
+
+from ..models import Person
 
 
 class NonAuthEditTestCase(TestCase):

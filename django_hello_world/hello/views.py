@@ -1,5 +1,4 @@
 import json
-from time import sleep
 
 from django.template import RequestContext
 from django.template.loader import render_to_string

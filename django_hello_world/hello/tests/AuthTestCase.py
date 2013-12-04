@@ -14,6 +14,7 @@ class AuthTestCase(TestCase):
         ('Login', reverse('login'), True),
         ('Logout', reverse('logout'), False),
         ('Edit', reverse('edit-view'), False),
+        ('Edit in Admin', '/admin/hello/person/1/', False)
     )
 
     @data_provider(guests_links)
@@ -43,6 +44,7 @@ class AuthTestCase(TestCase):
         ('Logout', reverse('logout'), True),
         ('Login', reverse('login'), False),
         ('Edit', reverse('edit-view'), True),
+        ('Edit in Admin', '/admin/hello/person/1/', True)
     )
 
     @data_provider(user_links)

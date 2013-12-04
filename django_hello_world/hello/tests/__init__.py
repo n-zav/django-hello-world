@@ -4,4 +4,4 @@ from .ContextProcessorTestCase import *
 from .EditTestCase import *
 from .AuthTestCase import *
 from .TemplateTagTestCase import *
-from .ShowModelsTestCase import *
+from .SignalProcessorTestCase import *

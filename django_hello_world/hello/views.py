@@ -26,7 +26,7 @@ class HomePageView(TemplateView):
 class RequestListView(ListView):
     model = Request
     template_name = "hello/request.html"
-    queryset = Request.objects.order_by('-time_added')[:10]
+    queryset = Request.objects.order_by('-priority', '-time_added')[:10]
 
 
 @login_required

@@ -19,6 +19,7 @@ class Person(models.Model):
 class Request(models.Model):
     full_path = models.TextField()
     time_added = models.DateTimeField(auto_now_add=True)
+    priority = models.IntegerField(default=1)
 
 
 class Change(models.Model):
@@ -30,5 +31,3 @@ class Change(models.Model):
     change_type = models.CharField(max_length=7, choices=TYPE_CHOICES)
     model_name = models.CharField(max_length=30)
     time = models.DateTimeField(auto_now_add=True)
-
-

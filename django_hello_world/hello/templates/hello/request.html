@@ -3,7 +3,7 @@
 {% block content %}
     {% for query in object_list %}
         <ul>
-        <li>{{ query.full_path }} -- {{ query.time_added }}</li>
+        <li>[{{ query.priority }}] {{ query.full_path }} -- {{ query.time_added }}</li>
         </ul>
     {% endfor %}
 {% endblock %}

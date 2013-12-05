@@ -1,9 +1,15 @@
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.test import TestCase, RequestFactory
 from django_hello_world.hello.middleware.http_request import *
 
+from with_asserts.case import TestCase as HTMLTestCase
+from with_asserts.mixin import AssertHTMLMixin
 
-class RequestTestCase(TestCase):
+import lxml.html
+
+
+class RequestTestCase(TestCase, AssertHTMLMixin):
 
     def test_process_request(self):
         # test that there is no record in db at first
@@ -25,3 +31,16 @@ class RequestTestCase(TestCase):
         self.assertIn(
             'django_hello_world.hello.middleware.http_request.StoreRequestInDatabase',
             middleware_classes)
+
+    def setUp(self):
+        Request.objects.all().delete()
+        Request.objects.create(full_path='/test1/', priority=2)
+        Request.objects.create(full_path='/test2/', priority=1)
+
+    def test_view_with_priorities(self):
+
+        response = self.client.get(reverse('request'))
+        with self.assertHTML(response, 'ul#request_list li') as (first, second, third):
+            self.assertIn('[2] /test1/', first.text)
+            self.assertIn('[1] /request/', second.text)
+            self.assertIn('[1] /test2/', third.text)

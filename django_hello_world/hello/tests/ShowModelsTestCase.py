@@ -12,4 +12,4 @@ class ShowModelsTestCase(TestCase):
         stdout.seek(0)
         self.assertIn('Person: 1', stdout.read())
         stderr.seek(0)
-        self.assertEquals('', stderr.read())
+        self.assertIn('error:', stderr.read())

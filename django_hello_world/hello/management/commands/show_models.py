@@ -12,5 +12,6 @@ class Command(AppCommand):
             for model in get_models(app_name):
                 line = "%s: %d\n" % (model._meta.object_name, model.objects.count())
                 self.stdout.write(line)
+                self.stderr.write('error: '+line)
         except Exception as e:
             raise CommandError('An exception occurred when retrieving %s app models: %s' % (app_name, e.message))

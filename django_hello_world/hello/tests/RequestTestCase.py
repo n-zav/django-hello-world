@@ -3,10 +3,7 @@ from django.core.urlresolvers import reverse
 from django.test import TestCase, RequestFactory
 from django_hello_world.hello.middleware.http_request import *
 
-from with_asserts.case import TestCase as HTMLTestCase
 from with_asserts.mixin import AssertHTMLMixin
-
-import lxml.html
 
 
 class RequestTestCase(TestCase, AssertHTMLMixin):

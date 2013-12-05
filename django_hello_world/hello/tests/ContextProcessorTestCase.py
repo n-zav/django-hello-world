@@ -4,7 +4,7 @@ from django.template import RequestContext
 from django.test.client import RequestFactory
 from django.conf import settings
 
-from django_hello_world.hello.context_processors import access_to_settings
+from ..context_processors import access_to_settings
 
 
 class ContextProcessorTestCase(unittest.TestCase):

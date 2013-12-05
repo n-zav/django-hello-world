@@ -1,6 +1,6 @@
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
-from django_hello_world.hello.models import Change
+from .models import Change
 
 
 @receiver(post_save)
